@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Pulse Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Nunito", sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(-45deg, #f7f7f7, #d4b9ff, #66c4e9, #d776ef);
+            animation: gradient 15s ease infinite;
+            @keyframes gradient {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+        }
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding-bottom: 50px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .progress-card, .assistant-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .assistant-button {
+            background-color: #c900c0;
+            color: rgba(255, 255, 255, 0.845);
+            border: none;
+            padding: 20px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .assistant-button:hover {
+            background-color: #a7009e;
+        }
+        .assistant-button:focus {
+        outline: none;
+        box-shadow: none;
+        }
+        .col {
+            display: flex;
+            justify-content: center;
+        }
+        .form-control {
+            outline: none;
+            border: none;
+            box-shadow: none;
+            background-color: rgb(242, 242, 242);
+        }
+        .btn-outline-secondary {
+            outline: none;
+            border: none;
+            box-shadow: none;
+        }
+        @media (max-width: 767.98px) {
+            .col-md-6 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+      
+</head>
+<body>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <h1 style="font-size: 60px; font-weight: bold;">Hello Chamidu,</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad amet dolor magnam suscipit, eius explicabo dolorum itaque sed libero sunt excepturi officia. Numquam odio dignissimos cum vitae facilis expedita facere.</p>
+                <div class="progress-card">
+                    <h4 style="font-weight: bold;">Check your progress</h4>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter your Virtual Pulse ID">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button"><img src="img/search.jpeg" alt="" style="height: 15px; width: 15px;"></button>
+                        </div>
+                    </div>
+                    <h5 style="font-weight: bold;">Your Report:</h5>
+                    <p>Report content goes here..</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-3">
+                <div class="assistant-card">
+                    <h3 style="font-size: 40px; font-weight: bold;"><img src="img/bot.png" alt="" style="height: 25%; width: 20%; float: left;"> I'm Virtual Pulse Assistant</h3>
+                    <p style="text-align: left; font-weight: bold;">Do you want personal Assistant Help?</p>
+                    <button class="assistant-button" style="float: left; margin-bottom: 10px;">I Need Clarification</button>
+                    <div style="clear: both;"></div>
+                    <h5 style="font-weight: bold;">Your Report:</h5>
+                    <p>Report content goes here..</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

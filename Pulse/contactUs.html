@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Pulse Hospital</title>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="js/smooth-scroll.js"></script>
+    <link rel="icon" href="img/favicon.ico" style="border-radius: 50px;">
+    <style>
+        .byVismeButton--PYBh3EN {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html"><img src="img/Logo.png" alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Why choose Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Our Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Health Tips</a>
+                </li>
+                <li class="nav-item dropdown dropdown-hover">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        News
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Globle Health News</a>
+                        <a class="dropdown-item" href="#">Our Updates</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Emergancy Ambulance Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="text.html">Contact us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact Form Section -->
+    <div class="contact-form">
+        <div class="visme_d" data-title="Untitled Project" data-url="ojm306ye-untitled-project" data-domain="forms" data-full-page="false" data-min-height="500px" data-form-id="82087"></div>
+        <script src="https://static-bundles.visme.co/forms/vismeforms-embed.js"></script>
+    </div>
+   
+    <!-- Link to Bootstrap JS -->
+    <script src="bootstrap/dist/js/jquery-3.5.1.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const targetNode = document.querySelector('.contact-form');
+            const config = { childList: true, subtree: true };
+
+            const callback = function(mutationsList, observer) {
+                for(const mutation of mutationsList) {
+                    if (mutation.type === 'childList') {
+                        const vismeButton = document.querySelector('.byVismeButton--PYBh3EN');
+                        if (vismeButton) {
+                            vismeButton.style.display = 'none';
+                            observer.disconnect();
+                        }
+                    }
+                }
+            };
+
+            const observer = new MutationObserver(callback);
+            observer.observe(targetNode, config);
+
+            setTimeout(() => {
+                const vismeButton = document.querySelector('.byVismeButton--PYBh3EN');
+                if (vismeButton) {
+                    vismeButton.style.display = 'none';
+                }
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

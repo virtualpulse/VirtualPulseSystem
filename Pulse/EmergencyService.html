@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambulance Contact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: "Nunito", sans-serif;
+            font-optical-sizing: auto;
+            background-color: #fff;
+        }
+        .card {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            flex-direction: column;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.945);
+            box-shadow: 16px 16px 32px #c8c8c8,
+                -16px -16px 32px #fefefe;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .login {
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            font-size: x-large;
+            margin-bottom: 10px;
+        }
+        .inputBox {
+            position: relative;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+        .inputBox input,
+        .inputBox textarea {
+            width: 100%;
+            padding: 15px;
+            outline: none;
+            border: none;
+            color: #000;
+            font-size: 1em;
+            background: transparent;
+            border-left: 2px solid #000;
+            border-bottom: 2px solid #000;
+            transition: 0.1s;
+            border-bottom-left-radius: 8px;
+        }
+        .inputBox span {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            pointer-events: none;
+            font-size: 12px;
+            color: #000;
+            text-transform: uppercase;
+            transition: 0.5s;
+            letter-spacing: 3px;
+        }
+        .inputBox input:valid~span,
+        .inputBox input:focus~span,
+        .inputBox textarea:valid~span,
+        .inputBox textarea:focus~span {
+            transform: translateY(-25px);
+            font-size: 0.8em;
+            padding: 0 5px;
+            background: #000;
+            color: #fff;
+            border-radius: 4px;
+        }
+        .inputBox input:valid,
+        .inputBox input:focus,
+        .inputBox textarea:valid,
+        .inputBox textarea:focus {
+            border: 2px solid #000;
+            border-radius: 8px;
+        }
+        .enter {
+            height: 50px;
+            width: 100%;
+            border-radius: 8px;
+            border: 2px solid #000;
+            cursor: pointer;
+            background-color: transparent;
+            transition: 0.5s;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+        .enter:hover {
+            background-color: #000;
+            color: white;
+        }
+        .background-video {
+            position: fixed;
+            top: 50;
+            left: 50;
+            width: 70%;
+            height: 70%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .alert {
+            background-color: #fff;
+            color: #000;
+            width: 95%;
+            margin: 0 auto;
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+        @media (max-width: 576px) {
+            .card {
+                width: 100%;
+                padding: 15px;
+            }
+            .inputBox input,
+            .inputBox textarea {
+                padding: 10px;
+            }
+            .enter {
+                height: 45px;
+                width: 100%;
+                font-size: 14px;
+            }
+            .login {
+                font-size: large;
+            }
+        }
+        .back {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+        }
+
+        .back a{
+            text-decoration: none;
+            color: #000;
+            font-weight: bolder;
+        }
+
+        .back img {
+            vertical-align: middle;
+            margin-right: 5px;
+            height: 5%;
+            width: 5%;
+        }
+
+
+        .button {
+          position: relative;
+          overflow: hidden;
+          height: 3rem;
+          padding: 0 2rem;
+          border-radius: 1.5rem;
+          background: #3d3a4e;
+          background-size: 400%;
+          color: #fff;
+          border: none;
+          cursor: pointer;
+        }
+
+        .button:hover::before {
+          transform: scaleX(1);
+        }
+
+        .button-content {
+          position: relative;
+          z-index: 1;
+        }
+
+        .button::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform: scaleX(0);
+          transform-origin: 0 50%;
+          width: 100%;
+          height: inherit;
+          border-radius: inherit;
+          background: linear-gradient(
+            82.3deg,
+            rgba(150, 93, 233, 1) 10.8%,
+            rgba(99, 88, 238, 1) 94.3%
+          );
+          transition: all 0.475s;
+        }
+
+    </style>
+
+    <script>
+        new WOW().init();
+    </script>
+    
+</head>
+<body>
+    <div class="back">
+        <a href="index.html"><img src="img/left.png" alt="Back">Back</a>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card wow animate__animated animate__zoomIn">
+                    <span class="login">Ambulance Contact<picture>
+                        <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f6a8/512.webp" type="image/webp">
+                        <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f6a8/512.gif" alt="🚨" width="32" height="32">
+                    </picture></span>
+                    <form id="contactForm">
+                        <div class="inputBox">
+                            <input type="email" name="email" id="email" required>
+                            <span>Your Email</span>
+                        </div>
+                        <div class="inputBox">
+                            <textarea name="message" id="message" required></textarea>
+                            <span>Your Mobile number</span>
+                        </div>
+                        <button class="enter" type="submit">Send</button>
+                    </form>
+                    <p id="responseMsg" style="color: green; display: none;">Message sent! Please wait and we will contact you within a minute. <picture>
+                        <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/26a1/512.webp" type="image/webp">
+                        <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/26a1/512.gif" alt="⚡" width="32" height="32">
+                    </picture></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alert alert-warning alert-dismissible fade show wow animate__animated animate__slideInRight" role="alert" data-wow-duration="1s" data-wow-delay="0.5s">
+        <strong>Dear Customer!</strong>  Download our extension to make your emergency connection even faster.
+        <a href="https://github.com/virtualpulse/VirtualPulseExtention/blob/main/Pulse%20Emergency%20Service.zip">
+            <button class="button" style="margin: 20px;">
+                <span class="button-content">Download</span>
+            </button>
+        </a>  
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>   
+    <video autoplay loop muted playsinline class="background-video">
+        <source src="img/emergency-ambulance.mp4" type="video/mp4">
+    </video>
+    <script src="popup.js"></script>
+</body>
+</html>
